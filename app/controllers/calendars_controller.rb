@@ -29,6 +29,12 @@ class CalendarsController < ApplicationController
 
     plans = Plan.where(date: @todays_date..@todays_date + 6)
 
+    def create
+      binding.pry
+      Plan.create(plan_params)
+      redirect_to action: :index
+    end
+
     7.times do |x|
       today_plans = []
       plan = plans.map do |plan|
